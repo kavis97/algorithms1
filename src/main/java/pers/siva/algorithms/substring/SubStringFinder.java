@@ -25,12 +25,19 @@ public class SubStringFinder {
     }
 
     private void split(String str, int start, List<String> accumulator) {
-        if (start == str.length()) {
+        if (str.length() == start) {
             return;
         }
-        for (int i = str.length(); i > start; i--) {
-            accumulator.add(str.substring(start, i));
+        split1(str.substring(start), accumulator);
+        start = start + 1;
+        split(str, start, accumulator);
+    }
+
+    void split1(String str, List<String> accumulator) {
+        if (str.length() == 0) {
+            return;
         }
-        split(str, start + 1, accumulator);
+        accumulator.add(str);
+        split1(str.substring(0, str.length() - 1), accumulator);
     }
 }

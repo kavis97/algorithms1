@@ -36,4 +36,5 @@ class SubStringFinderTest {
         Map<String, Integer> match = subStringFinder.findSubStrings("siva", "gentle");
         Assertions.assertEquals(0, match.size());
     }
+    
 }
